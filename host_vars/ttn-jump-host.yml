@@ -1,0 +1,8 @@
+---
+
+# Info for Ansible to config the SSH tunnel server
+ansible_host: ttn-jump-host
+ansible_port: 2222
+
+# The user to log into the host
+ansible_user: ttn-ww

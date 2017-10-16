@@ -3,7 +3,7 @@
   roles:
     - conduit
 
-- hosts: ttn.honig.net
+- hosts: ttn-jump-host
   roles:
     - sshhost
 
