@@ -35,10 +35,13 @@ region: US
 router: ttn-router-us-west
 
 # Whom to contact about issues with this gateway
-contact_email: martin.loy@wework.com
+contact_email: ajackson@wework.com
 
 # Collaborators
-gateway_collaborators: {}
+gateway_collaborators:
+  - { username: ajackson, rights: [ 'gateway:status', 'gateway:delete' ] }
+  - { username: jkachmar, rights: [ 'gateway:status', 'gateway:delete' ] }
+  - { username: Tombar, rights: [ 'gateway:status', 'gateway:delete' ] }
 
 # Pick servers appropriate for the installed region
 ntp_servers:
