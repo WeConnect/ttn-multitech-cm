@@ -1,0 +1,17 @@
+[test]
+ttn-ww-uy01
+
+[production]
+
+[conduits]
+
+[conduits:children]
+production
+test
+
+[all]
+
+[all:vars]
+
+[ssh_host]
+bastion.aws
