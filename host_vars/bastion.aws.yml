@@ -1,0 +1,9 @@
+---
+
+# Info for Ansible to config the SSH tunnel server
+ansible_host: 54.174.31.221
+ansible_port: 22
+ansible_user: ubuntu
+# ansible_become: true
+# ansible_become_user: root
+# ansible_become_method: sudo

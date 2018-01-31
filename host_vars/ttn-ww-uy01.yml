@@ -1,18 +1,24 @@
 ---
 
 # Hostname.  Start with ttn-ORG
-hostname: ttn-org-example
+hostname: test01uy
 
-# Define this to use an ssh tunnel.  Leave undefined or set to '0' to
-# disable ssh tunnel.
-# ssh_tunnel_remote_port: 15022
-# Define the keepalive port, must also be unique per gateway
-# ssh_tunnel_keepalive_base_port: 10084
+# Descriptive location of the gateway
+description: test.uy node
 
 # Actual address or hostname of the gateway.  This can be a hostname
 # or IP address.
-ansible_host: hostname.example.com
+ansible_host: 10.152.70.202
 ansible_port: 22
+
+# Location, use -1 for altitude if not known.
+latitude: -34.91246670
+longitude: -54.97586260
+altitude: -1
+
+# Define this to use an ssh tunnel.  Leave undefined or set to '0' to
+# disable ssh tunnel.
+ssh_tunnel_remote_port: 1337
 
 # Uncomment the following to force network configuration to DHCP (this
 # is the default config )
@@ -27,7 +33,7 @@ ansible_port: 22
 #static_domain:   example.com
 #static_nameservers:
 #  - 192.168.1.4
-#  - 192.168.1.5  
+#  - 192.168.1.5
 
 # To configure wireless the following setup is required.  Wireless
 # LANs usually use DHCP, but you can provide a static address in the
@@ -45,15 +51,3 @@ ansible_port: 22
 # It's best to do this when you are on the same network, or have
 # serial console access to the gateway
 # mlinux_version 3.3.7
-
-# Descriptive location of the gateway
-description: Test node in Org
-
-# Location can be set and will be used as "fake" GPS data if the GPS
-# card is not being used.
-# use -1 for altitude if not known.
-latitude: 42.55555
-longitude: -76.55555
-altitude: -1
-# Use the GPS if present.  This requires an external antenna
-# use_gps: true
