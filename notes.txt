@@ -1,0 +1,71 @@
+# reinstall following instructions: http://www.multitech.net/developer/software/mlinux/using-mlinux/flashing-mlinux-firmware-for-conduit/
+
+## download images from: http://multitech.net/mlinux/images/mtcdt/3.3.13/
+
+mlinux-base-image-mtcdt-20170920171940.rootfs.jffs2
+uImage--3.12.27-r14.2-mtcdt-20170920171940.bin
+
+mkdir /var/volatile/flash-upgrade
+touch /var/volatile/do_flash_upgrade
+
+# through serial, update network settings
+
+vi /etc/network/interfaces
+change `eth0 inet static` to dhcp or the right config
+
+# add your ssh key
+
+ mkdir /home/root/.ssh
+ vi /home/root/.ssh/authorized_keys
+
+# in order to use the ansible playbook, we will need to
+
+create a base image with:
+
+opkg update
+  opkg install python \
+    python-async \
+    python-argparse \
+    python-compression \
+    python-dateutil \
+    python-html \
+    python-psutil \
+    python-pycurl \
+    python-pyopenssl \
+    python-pyserial \
+    python-pyudev \
+    python-pyusb \
+    python-simplejson \
+    python-syslog \
+    python-textutils \
+    python-unixadmin \
+    python-xml \
+    python-distutils \
+    python-json \
+    python-pkgutil \
+    python-shell
+opkg install node
+opkg install autossh
+opkg install libmpsse
+
+or use :P https://github.com/IthacaThings/meta-ttni/tree/mlinux-3 image
+
+Containerized build environment for Multitech mLinux
+https://hub.docker.com/r/jchonig/mlinux-be/
+
+lora hw alternatives
+http://cpham.perso.univ-pau.fr/LORA/RPIgateway.html
+
+conferences
+https://events.linuxfoundation.org/events/elc-openiot-north-america-2018/
+https://www.openembedded.org/wiki/OEDAM_2018
+https://www.thethingsnetwork.org/conference/
+
+
+get ttnctl token https://account.thethingsnetwork.org/users/authorize?client_id=ttnctl&redirect_uri=/oauth/callback/ttnctl&response_type=code
+
+remove node by replacing node /opt/lora/merge.js /var/config/lora/ttn_global_conf.json /var/config/lora/multitech_overrides.json /var/config/lora/global_conf.json"
+
+http://git.multitech.net/cgi-bin/cgit.cgi/meta-multitech.git/plain/contrib/uboot-setenv-mtcdt.minicom
+
+http://www.multitech.net/developer/?s=uboot+recovery
